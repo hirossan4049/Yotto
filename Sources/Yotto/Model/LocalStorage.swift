@@ -9,21 +9,20 @@ import Foundation
 
 struct LS: Codable {
     var test: String?
-//    var subscribedRepositories: [String]
-    
+    var subscribedRepositories: [String]
 }
 
 final class LocalStorage {
     static let shared = LocalStorage()
-    let fileManager = FileManager.default
-    let localStoragePath = ProcessInfo.processInfo.environment["LOCAL_STORAGE_PATH"] ?? "/home/localStorage.json"
+    private let fileManager = FileManager.default
+    private let localStoragePath = ProcessInfo.processInfo.environment["LOCAL_STORAGE_PATH"] ?? "./localStorage.json"
     
     var storage: LS {
         get {
             let decoder = JSONDecoder()
             let fileUrl = URL(fileURLWithPath: localStoragePath)
             if !fileManager.fileExists(atPath: localStoragePath) {
-                return LS()
+                return LS(subscribedRepositories: [])
             }
             return try! decoder.decode(LS.self, from: Data(contentsOf: fileUrl))
         }
@@ -42,18 +41,4 @@ final class LocalStorage {
     private init() {
         
     }
-    
-//    func set() {
-//        let encoder = JSONEncoder()
-//        guard let json = try? encoder.encode(ls) else { return }
-//        let localStoragePath = ProcessInfo.processInfo.environment["LOCAL_STORAGE_PATH"] ?? "/home/localStorage.json"
-//        let fileUrl = URL(fileURLWithPath: localStoragePath)
-//        try! json.write(to: fileUrl)
-//    }
-//
-//    func get(key: LS.Type) {
-//        let decoder = JSONDecoder()
-//        guard let ls = try? decoder.decode(LS.self, from: "".data(using: .utf8)!) else { fatalError() }
-//
-//    }
 }
