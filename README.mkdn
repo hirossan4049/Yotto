@@ -1,6 +1,28 @@
 # Yotto, GitHubレビュー通知システム
 
+
+## debug
+
+`.xcodeproj` がほしいときは以下のコマンドから生成できる。
 ```bash
+$ swift package generate-xcodeproj
+```
+
+### ビルド方法
+```bash
+$ swift build
+```
+
+### 実行方法
+↓の方法で実行できるが 環境変数に `SLACK_API_KEY` がいるので適当にセットする。
+```bash
+$ .build/debug/Yotto
+```
+
+## release
+```bash
+$ mv .env.sample .env
+$ vi .env // envいじって。
 $ docker-compose build
 $ docker-compose up -d
 ```
