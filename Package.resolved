@@ -1,0 +1,104 @@
+{
+  "pins" : [
+    {
+      "identity" : "core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/core.git",
+      "state" : {
+        "revision" : "89c6989fd8b1e08acfd198afba1c38971bb814b2",
+        "version" : "3.10.1"
+      }
+    },
+    {
+      "identity" : "crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/crypto.git",
+      "state" : {
+        "revision" : "105c2f875588bf40dd24c00cef3644bf8e327770",
+        "version" : "3.4.1"
+      }
+    },
+    {
+      "identity" : "http",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/http.git",
+      "state" : {
+        "revision" : "0464b715a4b59f54078bcf7a4b424767b03db5a5",
+        "version" : "3.4.0"
+      }
+    },
+    {
+      "identity" : "slackkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pvzig/SlackKit.git",
+      "state" : {
+        "revision" : "3823aee4cfd05d618d2aaf334681b9bc4db89a63",
+        "version" : "4.8.0"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream",
+      "state" : {
+        "revision" : "df8d82047f6654d8e4b655d1b1525c64e1059d21",
+        "version" : "4.0.4"
+      }
+    },
+    {
+      "identity" : "swift-nio",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-nio.git",
+      "state" : {
+        "revision" : "546610d52b19be3e19935e0880bb06b9c03f5cef",
+        "version" : "1.14.4"
+      }
+    },
+    {
+      "identity" : "swift-nio-ssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-nio-ssl.git",
+      "state" : {
+        "revision" : "0f3999f3e3c359cc74480c292644c3419e44a12f",
+        "version" : "1.4.0"
+      }
+    },
+    {
+      "identity" : "swift-nio-ssl-support",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-nio-ssl-support.git",
+      "state" : {
+        "revision" : "c02eec4e0e6d351cd092938cf44195a8e669f555",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swift-nio-zlib-support",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-nio-zlib-support.git",
+      "state" : {
+        "revision" : "37760e9a52030bb9011972c5213c3350fa9d41fd",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swifter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/httpswift/swifter.git",
+      "state" : {
+        "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
+        "version" : "1.5.0"
+      }
+    },
+    {
+      "identity" : "websocket",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vapor/websocket",
+      "state" : {
+        "revision" : "d85e5b6dce4d04065865f77385fc3324f98178f6",
+        "version" : "1.1.2"
+      }
+    }
+  ],
+  "version" : 2
+}

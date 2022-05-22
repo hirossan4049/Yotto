@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  yotto:
+    container_name: yotto
+    env_file: .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args: 
+        - LOCAL_STORAGE_PATH=${LOCAL_STORAGE_PATH}
+        - SLACK_API_KEY=${SLACK_API_KEY}
+    volumes:
+      - yottodb:/yotto
+    restart: always
+    tty: true
+
+volumes:
+  yottodb:
