@@ -1,2 +1,9 @@
 # Yotto, GitHubレビュー通知システム
 
+```bash
+$ docker-compose build
+$ docker-compose up -d
+```
+
+## License
+TODO
