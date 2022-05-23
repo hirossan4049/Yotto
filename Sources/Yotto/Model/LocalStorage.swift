@@ -10,6 +10,12 @@ import Foundation
 struct LS: Codable {
     var test: String?
     var subscribedRepositories: [String]
+    var users: [String: String] // [githubUsername: slackUsername]
+    
+//    struct User: Codable {
+//        var slackId: String?
+//        var
+//    }
 }
 
 final class LocalStorage {
@@ -22,13 +28,18 @@ final class LocalStorage {
             let decoder = JSONDecoder()
             let fileUrl = URL(fileURLWithPath: localStoragePath)
             if !fileManager.fileExists(atPath: localStoragePath) {
-                return LS(subscribedRepositories: [])
+                return LS(subscribedRepositories: [], users: [:])
             }
-            return try! decoder.decode(LS.self, from: Data(contentsOf: fileUrl))
+            guard let decoded = try? decoder.decode(LS.self, from: Data(contentsOf: fileUrl)) else {
+                print("\(#line): パースエラー！")
+                return LS(subscribedRepositories: [], users: [:])
+            }
+            return decoded
         }
         
         set(v) {
             if !fileManager.fileExists(atPath: localStoragePath) {
+                print("file not found")
                 fileManager.createFile(atPath: localStoragePath, contents: nil)
             }
             let encoder = JSONEncoder()
@@ -39,6 +50,6 @@ final class LocalStorage {
     }
         
     private init() {
-        
+        print("localStoragePath: ", localStoragePath)
     }
 }

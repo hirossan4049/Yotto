@@ -5,15 +5,17 @@ import PackageDescription
 
 let package = Package(
     name: "Yotto",
+    platforms: [.macOS(.v10_12)],
     dependencies: [
         .package(url: "https://github.com/pvzig/SlackKit.git", .upToNextMinor(from: "4.8.0")),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.6.1"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .executableTarget(
             name: "Yotto",
-            dependencies: ["SlackKit"]),
+            dependencies: ["SlackKit", "Alamofire"]),
         .testTarget(
             name: "YottoTests",
             dependencies: ["Yotto"]),

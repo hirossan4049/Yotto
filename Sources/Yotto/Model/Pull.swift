@@ -12,13 +12,16 @@ struct Pull: Codable {
     let state: State
     let title: String
     let body: String
-    let requestedReviewers: User
+    let user: User
+    let requestedReviewers: [User]
     
-    enum State: Codable {
-        case open, close
+    enum State: String, Codable {
+        case open = "open"
+        case close = "close"
     }
     
     struct User: Codable {
+        let id: Int
         let login: String // username
         let avatarUrl: String
     }

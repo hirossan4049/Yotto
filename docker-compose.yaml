@@ -10,6 +10,7 @@ services:
       args: 
         - LOCAL_STORAGE_PATH=${LOCAL_STORAGE_PATH}
         - SLACK_API_KEY=${SLACK_API_KEY}
+        - GITHUB_API_KEY=${GITHUB_API_KEY}
     volumes:
       - yottodb:/yotto
     restart: always

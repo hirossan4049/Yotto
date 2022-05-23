@@ -1,7 +1,7 @@
 # Yotto, GitHubレビュー通知システム
 
 
-## debug
+## デバッグ
 
 `.xcodeproj` がほしいときは以下のコマンドから生成できる。
 ```bash
@@ -19,7 +19,7 @@ $ swift build
 $ .build/debug/Yotto
 ```
 
-## release
+## リリース
 ```bash
 $ mv .env.sample .env
 $ vi .env // envいじって。

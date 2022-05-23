@@ -1,4 +1,5 @@
 import XCTest
+import Yotto
 import class Foundation.Bundle
 
 final class YottoTests: XCTestCase {
@@ -43,5 +44,10 @@ final class YottoTests: XCTestCase {
       #else
         return Bundle.main.bundleURL
       #endif
+    }
+    
+    func testGetRepository() throws {
+        let gh = Github.shared
+        gh.fetchRepository(repository: "vlang/v")
     }
 }

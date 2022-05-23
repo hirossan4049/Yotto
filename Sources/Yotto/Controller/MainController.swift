@@ -13,23 +13,22 @@ class MainController {
     private let slackkit = SlackKit()
     private let command = Command()
     
-    init() {
-        guard let slackApiKey = ProcessInfo.processInfo.environment["SLACK_API_KEY"] else { fatalError("Slack APIキーがありません。") }
+    init(slackApiKey: String? = nil) {
+        guard let slackApiKey = slackApiKey
+                ?? ProcessInfo.processInfo.environment["SLACK_API_KEY"] else {
+            print("Slack APIキーがありません。")
+            fatalError("Slack APIキーがありません。")
+        }
         self.slackApiKey = slackApiKey
         command.delegate = self
         print("launched")
     }
     
     deinit {
-        print("deint")
+        print("deinit")
     }
     
     func run() {
-        let ls = LocalStorage.shared
-        print(ls.storage)
-        ls.storage.test = "olautan"
-        print(ls.storage)
-
         slackkit.addRTMBotWithAPIToken(slackApiKey)
         slackkit.addWebAPIAccessWithToken(slackApiKey)
         
