@@ -47,8 +47,10 @@ class MainController {
         else {
             return
         }
-        if cmd.remove(at: 0) == "yotto" {
-            let flag = cmd.remove(at: 0)
+        if cmd[safe: 0] == "yotto" {
+            cmd.remove(at: 0)
+            guard let flag = cmd[safe: 0] else { return }
+            cmd.remove(at: 0)
             if let flag = Commands(rawValue: String(flag)) {
                 command.input(channel: channel, flag: flag, arg: cmd)
                 return
