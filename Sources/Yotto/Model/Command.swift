@@ -80,7 +80,7 @@ final class Command {
         case .list:
             getList(channel: channel)
         case .testrun:
-            testrun(channel: channel)
+            testrun(channel: channel, repository: arg)
         case .addUser:
             guard let usernames = arg?[safe: 0] else {
                 delegate?.command(channel: channel, msg: "引数が足りません。 GitHubUser/SlackUser", error: true)
@@ -165,9 +165,8 @@ final class Command {
         delegate?.command(channel: channel, msg: msg)
     }
     
-    private func testrun(channel: String, repository: String? = nil) {
-        //        var msg = "Pull Requestsが溜まってるｿﾞ"
-        let repos = (repository != nil) ? [repository!] : ls.storage.subscribedRepositories
+    private func testrun(channel: String, repository: [String]? = []) {
+        let repos = (repository?.count != 0) ? repository! : ls.storage.subscribedRepositories
         if repos.count == 0 {
             delegate?.command(channel: channel, msg: "リポジトリが登録されていません。 `yotto subscribe owner/repo` で登録できます。", error: true)
         }
