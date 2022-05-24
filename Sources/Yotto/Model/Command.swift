@@ -27,6 +27,7 @@ enum Commands: String, CaseIterable {
     case addUser = "add-user"
     case addUsers = "add-users"
     case getUsers = "get-users"
+    case remind = "remind"
     
     func getDescription() -> String {
         switch self {
@@ -45,9 +46,11 @@ enum Commands: String, CaseIterable {
         case .addUser:
             return "GitHubのユーザー名からSlackのメンションに変換するユーザーを登録できます GitHubUser/SlackUserID"
         case .addUsers:
-            return "`set-users` を複数一気に登録できます GitHubUser1/SlackUserID1 GitHubUser2/SlackUserID2..."
+            return "`add-user` を複数一気に登録できます GitHubUser1/SlackUserID1 GitHubUser2/SlackUserID2..."
         case .getUsers:
             return "GitHubのユーザー名からSlackのメンションに変換するユーザー一覧を表示します"
+        case .remind:
+            return "リマインドします HH:MM {weekday}"
         }
     }
 }
@@ -110,6 +113,8 @@ final class Command {
             }
             msg += "```"
             delegate?.command(channel: channel, msg: msg)
+        case .remind:
+            delegate?.command(channel: channel, msg: "未実装", error: true)
         }
     }
     
